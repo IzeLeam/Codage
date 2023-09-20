@@ -2,13 +2,12 @@
 #include <stdlib.h>
 
 #include "../include/hadamard.h"
-#include "../include/utils.h"
+#include "../include/matrix.h"
 
 int main() {
-    int** hadamard;
-
-    generate_hadamard(3, hadamard);
-    //print_hadamard(8, hadamard);
+    int** hadamard = create_squared_matrix(8);
+    generate_hadamard(8, hadamard);
+    print_hadamard(8, hadamard);
 
     return 0;
 }

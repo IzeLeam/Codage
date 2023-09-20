@@ -1,28 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void init(int longueur, int** hadamard) {
-    hadamard = (int**)malloc(longueur * sizeof(int*));
-    for (int i = 0; i < longueur; i++) {
-        *(hadamard+i)=(int*)malloc(longueur * sizeof(int));
-    }
-}
+#include "../include/utils.h"
+#include "../include/hadamard.h"
 
-void generate_hadamard(int iterative, int** hadamard) {
-    int longueur = base2(iterative);
-    init(longueur, hadamard);
+void generate_hadamard(int size, int** hadamard) {
+    int longueur = base2(size);
     
-    for (int i = 0; i < longueur; i++) {
-        for (int j = 0; j < longueur; j++) {
-            //printf("%2d", *(*(hadamard+i)+j));
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            hadamard[i][j] = 1;
         }
     }
 }
 
-void print_hadamard(int longueur, int** hadamard) {
-    for (int i = 0; i < longueur; i++) {
-        for (int j = 0; j < longueur; j++) {
-            printf("%2d", *(*(hadamard+i)+j));
+void print_hadamard(int size, int** hadamard) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%2d", hadamard[i][j]);
         }
         printf("\n");
     }
