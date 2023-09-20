@@ -2,6 +2,8 @@
     "files.associations": {
         "stdio.h": "c",
         "stdlib.h": "c",
-        "hadamard.h": "c"
+        "hadamard.h": "c",
+        "matrix.h": "c",
+        "utils.h": "c"
     }
 }

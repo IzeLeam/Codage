@@ -16,3 +16,13 @@ int** create_matrix(int height, int width) {
     }
     return M;
 }
+
+void print_squared_matrix(int size, int** matrix) {
+    for (int i = 0; i < size; i++) {
+        printf("|");
+        for (int j = 0; j < size; j++) {
+            printf("%2d", matrix[i][j]);
+        }
+        printf(" |\n");
+    }
+}
