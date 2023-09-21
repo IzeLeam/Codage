@@ -32,6 +32,7 @@ void generate_hadamard(int size, int** hadamard) {
                 hadamard[k+length][l+length] = -baby[k][l];
             }
         }
+        free_squared_matrix(length, baby);
     }
 }
 

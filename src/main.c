@@ -10,7 +10,5 @@ int main() {
     generate_hadamard(8, hadamard);
     print_squared_matrix(8, hadamard);
 
-    //printf("%d, %d\n", to_base_2(0), from_base_2(2));
-
     return 0;
 }

@@ -26,3 +26,27 @@ void print_squared_matrix(int size, int** matrix) {
         printf(" |\n");
     }
 }
+
+void print_matrix(int height, int width, int** matrix) {
+    for (int i = 0; i < width; i++) {
+        printf("|");
+        for (int j = 0; j < height; j++) {
+            printf("%2d", matrix[i][j]);
+        }
+        printf(" |\n");
+    }
+}
+
+void free_squared_matrix(int size, int** matrix) {
+    for (int i = 0; i < size; i++) {
+        free(matrix[i]);
+    }
+    free(matrix);
+}
+
+void free_matrix(int width, int** matrix) {
+    for (int i = 0; i < width; i++) {
+        free(matrix[i]);
+    }
+    free(matrix);
+}
