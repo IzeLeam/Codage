@@ -45,7 +45,3 @@ int** get_baby_hadamard(int size, int** hadamard) {
     }
     return baby;
 }
-
-int parse_hadamard(int size, int user, int total_user) {
-    
-}
