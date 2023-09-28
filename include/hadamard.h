@@ -2,14 +2,13 @@
 #define HADAMARD_H
 
 #define MAX_USERS 16
-
-void generate_hadamard(int longueur, int** hadamard);
+#define MAX_MESSAGE_LEN 16
 
 typedef struct Hadamard {
     int** matrix;
     int size;
     int users;
-    char* messages[MAX_USERS];
+    int etalement[MAX_MESSAGE_LEN*32];
 } Hadamard;
 
 #endif

@@ -4,6 +4,11 @@
         "stdlib.h": "c",
         "hadamard.h": "c",
         "matrix.h": "c",
-        "utils.h": "c"
+        "utils.h": "c",
+        "system_error": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "utility": "c"
     }
 }

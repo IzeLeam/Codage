@@ -7,8 +7,7 @@
 #include "../include/menu.h"
 
 void test() {
-    int n = 51;
-    printf("%d", next_base_2(n));
+    printf("%d", -8/8);
 }
 
 int main() {
