@@ -16,3 +16,15 @@ int from_base_2(int x) {
     }
     return result;  
 }
+
+int next_base_2(int num) {
+    if (num <= 1)
+        return 1;
+
+    int result = 1;
+    while (result < num) {
+        result <<= 1;
+    }
+    
+    return result;
+}

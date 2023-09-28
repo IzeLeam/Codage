@@ -1,12 +1,15 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "../include/list.h"
+#define MAX_MENU_SIZE 10
 
-typedef struct menu {
+typedef struct Menu {
+    char* title;
     int size;
-    struct List* list;
-};
+    char* select[MAX_MENU_SIZE];
+} Menu;
 
+extern Menu main_menu;
+extern Menu hadamard_menu;
 
 #endif

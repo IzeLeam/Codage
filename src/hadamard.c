@@ -4,8 +4,52 @@
 #include "../include/utils.h"
 #include "../include/hadamard.h"
 #include "../include/matrix.h"
+#include "../include/menu.h"
 
 int** get_baby_hadamard(int size, int** hadamard);
+
+Hadamard* hadamard = NULL;
+
+void init_hadamard() {
+    if (hadamard == NULL) {
+        hadamard = malloc(sizeof(Hadamard));
+    }
+    int users = 0;
+    while (users < 1 || users > MAX_USERS) {
+        printf("Combien d'utilisateurs (max = %d): ", MAX_USERS);
+        scanf("%d", &users);
+    }
+    hadamard->users = users;
+    hadamard->size = next_base_2(users) * 2;
+    hadamard->matrix = create_squared_matrix(hadamard->size);
+    generate_hadamard(hadamard->size, hadamard->matrix);
+}
+
+int get_user_canal(int user) {
+    return user;
+}
+
+void sendMessage() {
+    
+}
+
+void process_hadamard() {
+    int select;
+    while ((select = process_menu(hadamard_menu))) {
+        switch (select) {
+        case 1:
+            init_hadamard();
+            break;
+        case 2:
+            if (hadamard == NULL) break;
+            print_squared_matrix(hadamard->size, hadamard->matrix);
+            break;
+        
+        default:
+            break;
+        }
+    }
+}
 
 void generate_hadamard(int size, int** hadamard) {
     int iterative = from_base_2(size);

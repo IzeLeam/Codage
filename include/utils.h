@@ -5,4 +5,6 @@ int to_base_2(int x);
 
 int from_base_2(int x);
 
+int next_base_2(int x);
+
 #endif

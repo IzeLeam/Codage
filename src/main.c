@@ -4,12 +4,24 @@
 #include "../include/hadamard.h"
 #include "../include/matrix.h"
 #include "../include/utils.h"
-#include "../include/list.h"
+#include "../include/menu.h"
+
+void test() {
+    int n = 51;
+    printf("%d", next_base_2(n));
+}
 
 int main() {
-    int** hadamard = create_squared_matrix(64);
-    generate_hadamard(64, hadamard);
-    print_squared_matrix(64, hadamard);
+    int select;
+    while (select = process_menu(main_menu)) {
+        switch(select) {
+            case 1 :
+                while(process_hadamard());
+                break;
+            default:
+                test();
+        }
+    }
 
     return 0;
 }
