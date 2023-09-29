@@ -62,7 +62,7 @@ void sendMessage() {
 
 void getMessage() {
     int user = ask_user();
-    printf("\nMessage de l'utilisateur %d : ", user);
+    printf("Message de l'utilisateur %d : \n", user);
     user--;
     int index = 0;
     for (int i = 0; i < MAX_MESSAGE_LEN*32; i++) {

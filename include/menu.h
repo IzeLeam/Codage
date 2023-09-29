@@ -11,5 +11,10 @@ typedef struct Menu {
 
 extern Menu main_menu;
 extern Menu hadamard_menu;
+extern Menu hdb_menu;
+
+void print_menu(Menu menu);
+
+int process_menu(Menu menu) ;
 
 #endif

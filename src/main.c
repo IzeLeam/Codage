@@ -15,8 +15,10 @@ int main() {
     while (select = process_menu(main_menu)) {
         switch(select) {
             case 1 :
-                while(process_hadamard());
+                process_hadamard();
                 break;
+            case 2 : 
+                process_hdb();
             default:
                 test();
         }

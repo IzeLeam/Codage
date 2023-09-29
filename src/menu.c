@@ -3,8 +3,9 @@
 
 #include "../include/menu.h"
 
-Menu main_menu = {"Principal" ,2 , {"Hadamard", "Test"}};
+Menu main_menu = {"Principal" ,3 , {"Hadamard", "HDB Encodage", "Test"}};
 Menu hadamard_menu = {"Hadamard" ,5 , {"Initialiser", "Afficher Matrice", "Envoyer un message", "Lire un message", "Afficher étalement"}};
+Menu hdb_menu = {"HDB Encodage", 5, {"Arithmétique", "HDB2", "HDB3", "HDB4", "HDBn"}};
 
 void print_menu(Menu menu) {
     printf("\nMenu %s :\n", menu.title);
