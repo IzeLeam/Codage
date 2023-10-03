@@ -29,31 +29,6 @@ int next_base_2(int num) {
     return result;
 }
 
-int nb_digits(int x) {
-    int result = 0;
-    for (int i = 1; i <= x; i*=10) {
-        if (x/i < 1) result++;
-    }
-    return result;
-}
-
-int pow(int x, int p) {
-    int result = 1;
-    for (int i = 0; i < p; i++) {
-        result *= x;
-    }
-    return result;
-}
-
-int* int_to_tab(int x) {
-    int digits = nb_digits(x);
-    int tab[digits];
-    for (int i = 0; i < digits; i++) {
-        tab[i] = x / pow(i, 10);
-    }
-    return tab;
-}
-
 int char_to_int(char c) {
     if (c == '1') return 1;
     return 0;

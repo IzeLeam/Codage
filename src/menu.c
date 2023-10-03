@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <Windows.h>
 
-#include "../include/menu.h"
+#include "../include/includes.h"
 
 Menu main_menu = {"Principal" ,3 , {"Hadamard", "HDB Encodage", "Test"}};
 Menu hadamard_menu = {"Hadamard" ,5 , {"Initialiser", "Afficher Matrice", "Envoyer un message", "Lire un message", "Afficher étalement"}};
@@ -22,6 +23,6 @@ int process_menu(Menu menu) {
         print_menu(menu);
         scanf("%d", &select);
     }
-    system("clear");
+    system("cls");
     return select;
 }

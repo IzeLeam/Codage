@@ -1,15 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../include/utils.h"
-#include "../include/hadamard.h"
-#include "../include/matrix.h"
-#include "../include/menu.h"
+#include "../include/includes.h"
 
 Hadamard* hadamard = NULL;
 
 void init_hadamard() {
-    if (hadamard == NULL) {
+    if (hadamard == NULL) { 
         hadamard = malloc(sizeof(Hadamard));
     }
     int users = 0;
