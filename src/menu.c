@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <Windows.h>
+//#include <Windows.h>
 
 #include "../include/includes.h"
 
@@ -23,6 +23,7 @@ int process_menu(Menu menu) {
         print_menu(menu);
         scanf("%d", &select);
     }
-    system("cls");
+    system("clear");
+    //system("cls");
     return select;
 }

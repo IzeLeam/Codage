@@ -13,66 +13,63 @@ void HDBn(int n, char* data, int* P, int* N) {
 
 }
 
-/*
-int compare_chars(const void* a, const void* b) {
-    return (*(char*)a - *(char*)b);
-}
-
-void sort(char* data) {
-    size_t len = strlen(data);
-    qsort(data, len, sizeof(char), compare_chars);
-}
-
-float arithmetique(char* data) {
+int different_letters(char* data) {
     int size = strlen(data);
-    int* probs = malloc(sizeof)
-    for (int i = 0)
+    int alpha[26];
+    int letters = 0;
+    for (int i = 0; i < size; i++) {
+        if (alpha[data[i] - 'a'] == 0) {
+            alpha[data[i] - 'a'] = 1;
+            letters++;
+        }
+    }
+    return letters;
 }
-*/
 
-void probabilities(char* data, float* probabilities) {
+float* probabilities(char* data) {
     int size = strlen(data);
+    int letters = different_letters(data);
+    float probs[26];
+    float finalprobs[letters];
 
     for (int i = 0; i < 26; i++) {
-        probabilities[i] = 0.0;
+        probs[i] = 0.0;
     }
 
     for (int i = 0; i < size; i++) {
-        probabilities[data[i] - 'a']++;
+        probs[data[i] - 'a']++;
     }
 
+    int j = 0;
     for (int i = 0; i < 26; i++) {
-        probabilities[i] /= size;
-        printf("%.3f\n", probabilities[i]);
+        if (probs[i] == 0) continue;
+        finalprobs[j++] = (i == 0 ? 0 : probs[i - 1]) + probs[i] / size;
     }
+
+    for (int i = 0; i < letters; i++) {
+        printf("%f\n", finalprobs[i]);
+    }
+    return finalprobs;
 }
 
-float arithmetique(char* data, float* probabilities) {
-    // Initialisation des bornes de l'intervalle [0, 1]
-    float lower_bound = 0.0;
-    float upper_bound = 1.0;
-    float range = 1.0;
+float arithmetique(char* data) {
+    float* probs = probabilities(data);
+    int letters = different_letters(data);
 
-    // Parcours de la séquence de symboles
-    int size = strlen(data);
-    float result = 0;
-    
-    
+    for (int i = 0; strlen(data); i++) {
+        
+    }
 
-    return result;
+    return 0.0;
 }
 
 void process_hdb() {
     int select;
+    char data[] = "coucou";
     while (select = process_menu(hdb_menu)) {
         switch(select) {
             case 1 :
-                char data[] = "coucou";
-                float prob[26];
-                probabilities(data, prob);
-
-                float code = arithmetique(data, prob);
-                printf("%f", code);
+                printf("%f", arithmetique(data));
                 break;
             case 2 : 
             case 3 :
