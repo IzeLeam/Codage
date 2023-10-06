@@ -16,6 +16,10 @@ int main() {
                 break;
             case 2 : 
                 process_hdb();
+                break;
+            case 3 :
+                process_cycle();
+                break;
             default:
                 test();
         }

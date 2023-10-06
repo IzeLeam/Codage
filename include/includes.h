@@ -6,5 +6,7 @@
 #include "../include/matrix.h"
 #include "../include/menu.h"
 #include "../include/utils.h"
+#include "../include/cycle.h"
+#include "../include/arithmetique.h"
 
 #endif

@@ -4,77 +4,81 @@
 
 #include "../include/includes.h"
 
-void HDBn(int n, char* data, int* P, int* N) {
+void HDBn(int n, int* data, int* P, int* N) {
     if (n == 5) {
         printf("Sélection HDBn pour n = ");
         scanf("%d", &n);
     }
 
+    for (int i = 0; i < 23; i++) {
+        P[i] = 0;
+        N[i] = 0;
+    }
 
-}
-
-int different_letters(char* data) {
-    int size = strlen(data);
-    int alpha[26];
-    int letters = 0;
-    for (int i = 0; i < size; i++) {
-        if (alpha[data[i] - 'a'] == 0) {
-            alpha[data[i] - 'a'] = 1;
-            letters++;
+    int zeros = 0;
+    int last_viol = -1;
+    int last_one = -1;
+    for (int i = 0; i < 23; i++) {
+        if (data[i] == 1) {
+            if (last_one == -1) {
+                P[i] = 1;
+            } else {
+                N[i] = 1;
+            }
+            last_one = -last_one;
+            zeros = 0;
+        } else {
+            if (zeros == n) {
+                if (last_viol == -1) {
+                    P[i] = 1;
+                    if (last_one == -1) {
+                        P[i - n] = 1;
+                        last_one = 1;
+                    }
+                } else {
+                    N[i] = 1;
+                    if (last_one == 1) {
+                        N[i - n] = 1;
+                        last_one = -1;
+                    }
+                }
+                last_viol = -last_viol;
+                zeros = 0;
+            } else {
+                zeros++;
+            }
         }
     }
-    return letters;
 }
 
-float* probabilities(char* data) {
-    int size = strlen(data);
-    int letters = different_letters(data);
-    float probs[26];
-    float finalprobs[letters];
-
-    for (int i = 0; i < 26; i++) {
-        probs[i] = 0.0;
+void print_polarite(int* P, int* N) {
+    printf("Resultat : \n");
+    printf("P | ");
+    for (int i = 0; i < 23; i++) {
+        printf("%d ", P[i]);
     }
-
-    for (int i = 0; i < size; i++) {
-        probs[data[i] - 'a']++;
+    printf("\nN | ");
+    for (int i = 0; i < 23; i++) {
+        printf("%d ", N[i]);
     }
-
-    int j = 0;
-    for (int i = 0; i < 26; i++) {
-        if (probs[i] == 0) continue;
-        finalprobs[j++] = (i == 0 ? 0 : probs[i - 1]) + probs[i] / size;
-    }
-
-    for (int i = 0; i < letters; i++) {
-        printf("%f\n", finalprobs[i]);
-    }
-    return finalprobs;
-}
-
-float arithmetique(char* data) {
-    float* probs = probabilities(data);
-    int letters = different_letters(data);
-
-    for (int i = 0; strlen(data); i++) {
-        
-    }
-
-    return 0.0;
 }
 
 void process_hdb() {
     int select;
-    char data[] = "coucou";
+    int P[23];
+    int N[23];
+    int data[] = {1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0};
     while (select = process_menu(hdb_menu)) {
         switch(select) {
             case 1 :
-                printf("%f", arithmetique(data));
+                printf("%f", arithmetique("coucou"));
                 break;
-            case 2 : 
+            case 2 :
             case 3 :
             case 4 :
             case 5 :
+                HDBn(select, data, P, N);
+                print_polarite(P, N);
                 break;
             default:
                 break;
