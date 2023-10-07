@@ -17,6 +17,11 @@ int** create_matrix(int height, int width) {
     return M;
 }
 
+void* create_list(int size, size_t type) {
+    void* list = malloc(type * size);
+    return list;
+}
+
 void print_squared_matrix(int size, int** matrix) {
     for (int i = 0; i < size; i++) {
         printf("|");
